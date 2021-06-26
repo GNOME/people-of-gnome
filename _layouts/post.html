@@ -1,0 +1,57 @@
+---
+navbar_type: dark
+layout: default
+---
+
+{% include header.html %}
+{% include navbar.html %}
+
+{% assign post_url = window.location.href %}
+{% assign twitter_url = "https://twitter.com/share?url=" | append: post_url %}
+{% assign linkedin_url = "http://www.linkedin.com/shareArticle?mini=true&url=" | append: post_url %}
+{% assign facebook_url = "https://www.facebook.com/sharer/sharer.php?u=" | append: post_url %}
+
+{% assign member_page_link = page.author_id | prepend: "/members/" | prepend: site.url %}
+
+<section class="pt-3 pb-5 px-4 markdown-body">
+  <div class="pb-3">
+    <h1>{{ page.title }}</h1>
+    <div class="d-flex justify-content-between">
+      <h3 class="font-weight-normal text-muted">{{ page.date | date_to_string }} - <a class="text-decoration-none"
+          href="{{ member_page_link | relative_url }}">{{ page.author_name }}</a></h3>
+      <div class="d-flex">
+        <h3 class="font-weight-normal text-muted mr-2">Share: </h3>
+        <div class="mt-1">
+          <a href="{{ twitter_url }}" class="text-decoration-none" target="_href">
+            <i class="fab fa-twitter fa-lg mr-2"></i>
+          </a>
+          <a href="{{ linkedin_url }}" class="text-decoration-none" target="_href">
+            <i class="fab fa-linkedin fa-lg mr-2"></i>
+          </a>
+          <a href="{{ facebook_url }}" class="text-decoration-none" target="_href">
+            <i class="fab fa-facebook-square fa-lg mr-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>
+    {{ content }}
+  </p>
+
+  <div class="d-flex pt-4 {% if page.previous.url and page.next.url %} justify-content-between {% elsif page.next.url %} justify-content-end {% else %} justify-content-start {% endif %}">
+    {% if page.previous.url %}
+      <h3 class="rounded bg-grey px-4 py-2">
+        <a class="text-decoration-none text-white" href="{{ page.previous.url }}">&laquo; Previous Post</a>
+      </h3>
+    {% endif %}
+    {% if page.next.url %}
+    <a class="text-decoration-none text-white" href="{{ page.next.url }}">
+      <h3 class="rounded bg-grey px-4 py-2">Next Post &raquo;</h3>
+    </a>
+    {% endif %}
+  </div>
+</section>
+
+{% include scripts.html %}
+{% include footer.html %}

@@ -1,0 +1,46 @@
+{% assign filtered_posts = site.posts | where:"author_id", page.id %}
+{% if filtered_posts.size > 0 %}
+<div class="pb-3">
+  <h2 class="font-weight-normal pb-2">Posts</h2>
+  <!-- Search bar -->
+  <div class="form-group has-search">
+    <span class="fa fa-search form-control-feedback"></span>
+    <input type="text" class="form-control" placeholder="Search into posts...">
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-12 py-3">
+      <div class="d-flex flex-column justify-content-between h-100">
+        <div class="position-sticky" style="top: 0; align-self: flex-start;">
+          <!-- TODO: -->
+          <h5 class="font-weight-light py-2 text-muted">Tags</h5>
+          <div class="col px-0 flex-wrap justify-content-between w-75">
+            <button type="button" class="btn btn-outline-primary btn-sm post-tags mr-2 mb-2">guadec 2021</button>
+            <button type="button" class="btn btn-outline-primary btn-sm post-tags mr-2 mb-2">celebration</button>
+            <button type="button" class="btn btn-outline-primary btn-sm post-tags mr-2 mb-2">gnome 40</button>
+            <button type="button" class="btn btn-outline-primary btn-sm post-tags mr-2 mb-2">gnome40</button>
+          </div>
+        </div>
+        <div class="d-flex">
+          <p class="mb-4 rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS <i class="ml-3 fas fa-rss"></i></a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-8 col-md-12 py-3">
+      <!-- TODO: -->
+      {% for post in filtered_posts %}
+      <div class="py-3">
+        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+        <h6 class="text-muted font-weight-semi-bold mb-2">{{ post.date | date: date_format }}</h6>
+        <h4>
+          <a class="font-weight-normal" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h4>
+        <div class="post-snippet">
+          {{ post.excerpt }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}

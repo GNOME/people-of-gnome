@@ -1,0 +1,32 @@
+---
+id: lorem-ipsum
+name: Lorem Ipsum
+nick: ipsum
+pronoun: he
+country: 🏳️‍🌈
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+avatar: https://gitlab.gnome.org/Teams/Engagement/websites/people-of-gnome/uploads/bbab5db8bee47434c140ccf40687e942/ubuntu-gnome-logo-removebg-preview.png
+title: Someone Special
+badges:
+  - contributor
+  - maintainer
+  - foundation
+  - speaker
+active: true
+projects:
+  - gnome-shell
+  - dia
+conferences:
+  - guadec-2014
+  - guadec-2019
+  - fosdem-2020
+social:
+  blog: https://my.site
+  twitter: handle
+  gitlab: handle
+  matrix: handle #include @
+  instagram: handle
+  dev_to: handle
+  github: handle
+  mastodon: handle #include @
+  keybase: handle

@@ -1,4 +1,5 @@
 ---
+id: member-template #same as file name
 name: John Smith
 nick: JSmith
 pronoun: he

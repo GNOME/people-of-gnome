@@ -42,7 +42,7 @@ plugins:
 page_gen:
   - data: 'members'
     template: 'member'
-    name: 'name'
+    name: 'id'
 
 # exclude these files from production site
 exclude: 
